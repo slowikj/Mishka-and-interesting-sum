@@ -9,12 +9,12 @@ class IntervalTree
 private:
 	vector<int> _nodes;
 
-	int _GetSizeOfTree (const int& minimumNumberOfLeaves) const;
-	int _NearestPowerOf2NotLowerThan (const int& x) const;
+	int _GetSizeOfTree (int minimumNumberOfLeaves) const;
+	int _NearestPowerOf2NotLowerThan (int x) const;
 
 public:
-	IntervalTree (const int& arrayLength);
-	void Insert (const int& where, const int& val);
+	IntervalTree (int arrayLength);
+	void Insert (int where, int val);
 	int Query (const Interval& interval);
 	int NumberOfLeaves () const;
 };

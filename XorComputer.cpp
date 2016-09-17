@@ -7,7 +7,7 @@ XorComputer::XorComputer (shared_ptr<TaskData> _dataPtr)
 {
 }
 
-int XorComputer::Result (const int& queryNumber)
+int XorComputer::Result (int queryNumber)
 {
 	return this->Result(_taskData->Query(queryNumber));
 }

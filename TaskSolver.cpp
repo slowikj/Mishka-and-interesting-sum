@@ -9,15 +9,15 @@ TaskSolver::TaskSolver ()
 
 vector<int> TaskSolver::Results ()
 {
-	if (_IsResultNotComputed ())
+	if (!_IsResultComputed ())
 		_results = _GetVectorWithResults();
 
 	return _results;
 }
 
-bool TaskSolver::_IsResultNotComputed () const
+bool TaskSolver::_IsResultComputed () const
 {
-	return _results.size() == 0;
+	return _results.size() != 0;
 }
 
 vector<int> TaskSolver::_GetVectorWithResults () const

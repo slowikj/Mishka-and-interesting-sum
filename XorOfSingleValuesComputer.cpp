@@ -7,17 +7,17 @@ XorOfSingleValuesComputer::XorOfSingleValuesComputer (shared_ptr<TaskData> dataP
 {
 }
 
-const int& XorOfSingleValuesComputer::Result (const int& queryNumber)
+int XorOfSingleValuesComputer::Result (int queryNumber)
 {
-	if (_IsResultNotComputed())
+	if (!_IsResultComputed())
 		_results = _GetResults();
 
 	return _results[queryNumber];
 }
 
-bool XorOfSingleValuesComputer::_IsResultNotComputed () const
+bool XorOfSingleValuesComputer::_IsResultComputed () const
 {
-	return _results.size() == 0;
+	return _results.size() != 0;
 }
 
 vector<int> XorOfSingleValuesComputer::_GetResults () const
@@ -38,7 +38,7 @@ vector<int> XorOfSingleValuesComputer::_GetResults () const
 		xorOfSingleValues.Insert(i, val);
 		lastOccur[val] = i;
 
-		for (const int& queryInd: queries[i])
+		for (int queryInd: queries[i])
 			res[queryInd] = xorOfSingleValues.Query(_taskData->Query(queryInd));
 	}
 

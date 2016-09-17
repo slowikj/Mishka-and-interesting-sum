@@ -12,7 +12,7 @@ private:
 	vector<int> _results;
 	
 	vector<int> _GetVectorWithResults () const;
-	bool _IsResultNotComputed () const;
+	bool _IsResultComputed () const;
 
 public:
 	TaskSolver ();

@@ -18,6 +18,6 @@ private:
 public:
 	XorComputer (shared_ptr<TaskData> _dataPtr);
 	int Result (const Interval& interval);
-	int Result (const int& queryNumber);
+	int Result (int queryNumber);
 };
 

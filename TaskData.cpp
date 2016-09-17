@@ -42,12 +42,12 @@ vector<T> TaskData::_GetReadSequence() const
 	return move(res);
 }
 
-const int& TaskData::Number (const int& index) const
+int TaskData::Number (int index) const
 {
 	return _numbers[index];
 }
 
-const Interval& TaskData::Query (const int& index) const
+const Interval& TaskData::Query (int index) const
 {
 	return _queries[index];
 }
@@ -62,12 +62,12 @@ int TaskData::NumberOfQueries () const
 	return _queries.size();
 }
 
-int TaskData::GetBeginOfInterval (const int& index) const
+int TaskData::GetBeginOfInterval (int index) const
 {
 	return _queries[index].Begin;
 }
 
-int TaskData::GetEndOfInterval (const int& index) const
+int TaskData::GetEndOfInterval (int index) const
 {
 	return _queries[index].End;
 }

@@ -1,12 +1,12 @@
 #include "BinaryIndexedTree.h"
 
-BinaryIndexedTree::BinaryIndexedTree (const int& arrayLength)
+BinaryIndexedTree::BinaryIndexedTree (int arrayLength)
 	: _nodes(arrayLength + 1, 0)
 {
 	_treeSize = _nodes.size();
 }
 
-void BinaryIndexedTree::Insert (const int& where, const int &val)
+void BinaryIndexedTree::Insert (int where, int val)
 {
 	int index = where + 1;
 
@@ -17,12 +17,12 @@ void BinaryIndexedTree::Insert (const int& where, const int &val)
 	}
 }
 
-int BinaryIndexedTree::_NextNodeToUpdate (const int& index) const
+int BinaryIndexedTree::_NextNodeToUpdate (int index) const
 {
 	return index + _GreatestPowerOf2DivisorOf(index);
 }
 
-int BinaryIndexedTree::_GreatestPowerOf2DivisorOf (const int& x) const
+int BinaryIndexedTree::_GreatestPowerOf2DivisorOf (int x) const
 {
 	return ((x ^ (x - 1)) + 1) >> 1;
 //	return x - (x&(x-1));
@@ -48,7 +48,7 @@ int BinaryIndexedTree::_PrefixResult (int End) const
 	return res;
 }
 
-int BinaryIndexedTree::_NextNodeToGetValue (const int& index) const
+int BinaryIndexedTree::_NextNodeToGetValue (int index) const
 {
 	return index - _GreatestPowerOf2DivisorOf(index);
 }

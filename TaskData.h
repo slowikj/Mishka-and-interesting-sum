@@ -20,11 +20,11 @@ private:
 public:
 	TaskData ();
 
-	const int& Number (const int& index) const;
-	const Interval& Query (const int& index) const;
+	int Number (int index) const;
+	const Interval& Query (int index) const;
 	int NumberOfNumbers () const;
 	int NumberOfQueries () const;
-	int GetBeginOfInterval (const int& index) const;
-	int GetEndOfInterval (const int& index) const;
+	int GetBeginOfInterval (int index) const;
+	int GetEndOfInterval (int index) const;
 };
 

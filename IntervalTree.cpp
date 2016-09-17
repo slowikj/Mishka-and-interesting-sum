@@ -1,16 +1,16 @@
 #include "IntervalTree.h"
 
-IntervalTree::IntervalTree (const int& arrayLength)
+IntervalTree::IntervalTree (int arrayLength)
 	: _nodes(_GetSizeOfTree(arrayLength), 0)
 {
 }
 
-int IntervalTree::_GetSizeOfTree (const int& minimumNumberOfLeaves) const
+int IntervalTree::_GetSizeOfTree (int minimumNumberOfLeaves) const
 {
 	return _NearestPowerOf2NotLowerThan(minimumNumberOfLeaves) * 2 - 1;
 }
 
-int IntervalTree::_NearestPowerOf2NotLowerThan (const int& x) const
+int IntervalTree::_NearestPowerOf2NotLowerThan (int x) const
 {
 	int res = x;
 
@@ -24,7 +24,7 @@ int IntervalTree::_NearestPowerOf2NotLowerThan (const int& x) const
 	return res;
 }
 
-void IntervalTree::Insert (const int& leafNumber, const int& val)
+void IntervalTree::Insert (int leafNumber, int val)
 {
 	int ind = leafNumber + this->NumberOfLeaves();
 	

@@ -14,12 +14,12 @@ private:
 	shared_ptr<TaskData> _taskData;
 	vector<int> _results;
 
-	bool _IsResultNotComputed () const;
+	bool _IsResultComputed () const;
 	vector<int> _GetResults() const;
 	vector<vector<int>> _GetVectorsWithSetQueries () const;
 						   
 public:
 	XorOfSingleValuesComputer (shared_ptr<TaskData> dataPtr);
-	const int& Result (const int& queryNumber);
+	int Result (int queryNumber);
 };
 
