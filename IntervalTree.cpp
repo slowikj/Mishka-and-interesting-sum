@@ -21,7 +21,8 @@ int IntervalTree::_NearestPowerOf2NotLowerThan (int x) const
 	res |= (res >> 16);
 	++res;
 
-	return res;
+	return (res >> 1) == x ? x
+						   : res;
 }
 
 void IntervalTree::Insert (int leafNumber, int val)
