@@ -1,4 +1,5 @@
 #pragma once
+
 #include <vector>
 #include "XorComputer.h"
 #include "XorOfSingleValuesComputer.h"
@@ -11,7 +12,7 @@ private:
 	shared_ptr<TaskData> _taskData;
 	vector<int> _results;
 	
-	vector<int> _GetVectorWithResults () const;
+	vector<int> _ComputeAndGetResults () const;
 	bool _IsResultComputed () const;
 
 public:

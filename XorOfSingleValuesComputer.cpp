@@ -24,28 +24,22 @@ vector<int> XorOfSingleValuesComputer::_GetResults () const
 {
 	vector<int> res(_taskData->NumberOfQueries());
 
-	vector<vector<int>> queries = _GetVectorsWithSetQueries();
-	unordered_map<int,int> lastOccur;
-//	IntervalTree xorOfSingleValues(_taskData->NumberOfNumbers());
-	BinaryIndexedTree xorOfSingleValues(_taskData->NumberOfNumbers());
+	vector<vector<int>> queriesEndAt = _GetQueriesGroupedByEnd();
+	SuffixXorOfSingleValues suffixXorOfSingleValues("BinaryIndexedTree",
+													_taskData->NumberOfNumbers());
 
 	for(int i = 0; i < _taskData->NumberOfNumbers(); ++i)
 	{
-		int val = _taskData->Number(i);
-		if (lastOccur.find(val) != lastOccur.end())
-			xorOfSingleValues.Insert(lastOccur[val], val);
-
-		xorOfSingleValues.Insert(i, val);
-		lastOccur[val] = i;
-
-		for (int queryInd: queries[i])
-			res[queryInd] = xorOfSingleValues.Query(_taskData->Query(queryInd));
+		suffixXorOfSingleValues.PushBack(_taskData->Number(i));
+		
+		for (int queryInd: queriesEndAt[i])
+			res[queryInd] = suffixXorOfSingleValues.Result(_taskData->Query(queryInd).Begin);
 	}
 
 	return res;
 }
 
-vector<vector<int>> XorOfSingleValuesComputer::_GetVectorsWithSetQueries () const
+vector<vector<int>> XorOfSingleValuesComputer::_GetQueriesGroupedByEnd () const
 {
 	vector<vector<int>> res(_taskData->NumberOfNumbers());
 

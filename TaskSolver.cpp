@@ -10,7 +10,7 @@ TaskSolver::TaskSolver ()
 vector<int> TaskSolver::Results ()
 {
 	if (!_IsResultComputed ())
-		_results = _GetVectorWithResults();
+		_results = _ComputeAndGetResults();
 
 	return _results;
 }
@@ -20,7 +20,7 @@ bool TaskSolver::_IsResultComputed () const
 	return _results.size() != 0;
 }
 
-vector<int> TaskSolver::_GetVectorWithResults () const
+vector<int> TaskSolver::_ComputeAndGetResults () const
 {
 	int numberOfQueries = _taskData->NumberOfQueries();
 

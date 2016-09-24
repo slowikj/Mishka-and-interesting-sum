@@ -1,10 +1,11 @@
 #pragma once
 #include <vector>
 #include "Interval.h"
+#include "AbstractXorIntervalTree.h"
 
 using namespace std;
 
-class IntervalTree
+class XorIntervalTree : public AbstractXorIntervalTree
 {
 private:
 	vector<int> _nodes;
@@ -13,9 +14,9 @@ private:
 	int _NearestPowerOf2NotLowerThan (int x) const;
 
 public:
-	IntervalTree (int arrayLength);
+	XorIntervalTree (int arrayLength);
 	void Insert (int where, int val);
-	int Query (const Interval& interval);
+	int Query (const Interval& interval) const;
 	int NumberOfLeaves () const;
 };
 

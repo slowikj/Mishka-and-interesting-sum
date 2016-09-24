@@ -2,8 +2,9 @@
 
 #include <vector>
 #include "Interval.h"
+#include "AbstractXorIntervalTree.h"
 
-class BinaryIndexedTree
+class XorBinaryIndexedTree : public AbstractXorIntervalTree
 {
 private:
 	vector<int> _nodes;
@@ -15,7 +16,7 @@ private:
 	int _PrefixResult (int End) const;
 
 public:
-	BinaryIndexedTree (int arrayLength);
+	XorBinaryIndexedTree (int arrayLength);
 	void Insert (int where, int val);
 	int Query (const Interval& interval) const;
 };

@@ -1,12 +1,12 @@
-#include "BinaryIndexedTree.h"
+#include "XorBinaryIndexedTree.h"
 
-BinaryIndexedTree::BinaryIndexedTree (int arrayLength)
+XorBinaryIndexedTree::XorBinaryIndexedTree (int arrayLength)
 	: _nodes(arrayLength + 1, 0)
 {
 	_treeSize = _nodes.size();
 }
 
-void BinaryIndexedTree::Insert (int where, int val)
+void XorBinaryIndexedTree::Insert (int where, int val)
 {
 	int index = where + 1;
 
@@ -17,24 +17,22 @@ void BinaryIndexedTree::Insert (int where, int val)
 	}
 }
 
-int BinaryIndexedTree::_NextNodeToUpdate (int index) const
+int XorBinaryIndexedTree::_NextNodeToUpdate (int index) const
 {
 	return index + _GreatestPowerOf2DivisorOf(index);
 }
 
-int BinaryIndexedTree::_GreatestPowerOf2DivisorOf (int x) const
+int XorBinaryIndexedTree::_GreatestPowerOf2DivisorOf (int x) const
 {
 	return ((x ^ (x - 1)) + 1) >> 1;
-//	return x - (x&(x-1));
-//	return x & (-x);
 }
 
-int BinaryIndexedTree::Query (const Interval& interval) const
+int XorBinaryIndexedTree::Query (const Interval& interval) const
 {
 	return _PrefixResult(interval.End + 1) ^ _PrefixResult(interval.Begin);
 }
 
-int BinaryIndexedTree::_PrefixResult (int End) const
+int XorBinaryIndexedTree::_PrefixResult (int End) const
 {
 	int index = End;
 	int res = 0;
@@ -48,7 +46,7 @@ int BinaryIndexedTree::_PrefixResult (int End) const
 	return res;
 }
 
-int BinaryIndexedTree::_NextNodeToGetValue (int index) const
+int XorBinaryIndexedTree::_NextNodeToGetValue (int index) const
 {
 	return index - _GreatestPowerOf2DivisorOf(index);
 }

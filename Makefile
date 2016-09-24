@@ -1,4 +1,14 @@
-FLAGS= -Wall -std=c++11
+FLAGS= -Wall -std=c++14
 all:
-	g++ ${FLAGS} BinaryIndexedTree.cpp IntervalTree.cpp TaskData.cpp TaskSolver.cpp XorComputer.cpp XorOfSingleValuesComputer.cpp main.cpp -o main
+	g++ ${FLAGS} XorBinaryIndexedTree.cpp \
+				 XorIntervalTree.cpp \
+				 TaskData.cpp \
+				 TaskSolver.cpp \
+				 XorComputer.cpp \
+				 XorOfSingleValuesComputer.cpp \
+				 SuffixXorOfSingleValues.cpp \
+				 main.cpp \
+				 -o main
 
+clean:
+	rm main

@@ -1,16 +1,16 @@
-#include "IntervalTree.h"
+#include "XorIntervalTree.h"
 
-IntervalTree::IntervalTree (int arrayLength)
+XorIntervalTree::XorIntervalTree (int arrayLength)
 	: _nodes(_GetSizeOfTree(arrayLength), 0)
 {
 }
 
-int IntervalTree::_GetSizeOfTree (int minimumNumberOfLeaves) const
+int XorIntervalTree::_GetSizeOfTree (int minimumNumberOfLeaves) const
 {
 	return _NearestPowerOf2NotLowerThan(minimumNumberOfLeaves) * 2 - 1;
 }
 
-int IntervalTree::_NearestPowerOf2NotLowerThan (int x) const
+int XorIntervalTree::_NearestPowerOf2NotLowerThan (int x) const
 {
 	int res = x;
 
@@ -25,7 +25,7 @@ int IntervalTree::_NearestPowerOf2NotLowerThan (int x) const
 						   : res;
 }
 
-void IntervalTree::Insert (int leafNumber, int val)
+void XorIntervalTree::Insert (int leafNumber, int val)
 {
 	int ind = leafNumber + this->NumberOfLeaves();
 	
@@ -38,7 +38,7 @@ void IntervalTree::Insert (int leafNumber, int val)
 	}
 }
 
-int IntervalTree::Query (const Interval& interval)
+int XorIntervalTree::Query (const Interval& interval) const
 {
 	int beg = interval.Begin + this->NumberOfLeaves();
 	int end = interval.End + this->NumberOfLeaves();
@@ -61,7 +61,7 @@ int IntervalTree::Query (const Interval& interval)
 	return res;
 }
 
-int IntervalTree::NumberOfLeaves () const
+int XorIntervalTree::NumberOfLeaves () const
 {
 	return _nodes.size() / 2 + _nodes.size() % 2;
 }
