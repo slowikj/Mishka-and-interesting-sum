@@ -1,5 +1,6 @@
 # MishkaAndInterestingSum
-The solution to a codeforces' algorithmic task (data structures)
+The solution to [a codeforces' algorithmic task](http://codeforces.com/problemset/problem/703/D)
+(data structures)
 
 Task
 ----
