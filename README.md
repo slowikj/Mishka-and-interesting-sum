@@ -6,7 +6,7 @@ Task
 ----
 We are given an array with integers.
 The aim of the task is to compute for each queried interval [a, b]
-the xor of the different values which occur even number of times.
+the xor of the different values which occur an even number of times.
 
 Example
 ----
