@@ -11,7 +11,7 @@ using namespace std;
 
 class XorOfSingleValuesComputer
 {
-public:
+private:
 	shared_ptr<TaskData> _taskData;
 	vector<int> _results;
 
